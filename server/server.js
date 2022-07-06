@@ -25,6 +25,7 @@ const Room = require('./lib/Room');
 const interactiveServer = require('./lib/interactiveServer');
 const interactiveClient = require('./lib/interactiveClient');
 const requireLogin = require('./middlewares/requireLogin');
+const passport = require('passport');
 
 const logger = new Logger();
 
@@ -150,14 +151,17 @@ async function runMediasoupWorkers() {
  */
 async function createExpressApp() {
   logger.info('creating Express app...');
-
+  const morgan = require('morgan');
   expressApp = express();
 
+  expressApp.use(passport.initialize());
   expressApp.use(bodyParser.json());
+  expressApp.use(morgan('combined'));
 
   //Load auth route
   require('./routes/authRoute')(expressApp);
-
+  require('./routes/department')(expressApp);
+  require('./routes/meetRoute')(expressApp);
   /**
    * For every API request, verify that the roomId in the path matches and
    * existing room.

@@ -24,12 +24,14 @@
     "jsonwebtoken": "^8.5.1",
     "mediasoup": "github:versatica/mediasoup#v3",
     "moment": "^2.29.3",
+    "morgan": "^1.10.0",
     "mysql2": "^2.3.3",
     "omit-empty": "^1.0.0",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.0",
     "pidusage": "^2.0.21",
     "protoo-server": "^4.0.5",
+    "sanitize-filename": "^1.6.3",
     "util": "^0.12.4"
   },
   "devDependencies": {

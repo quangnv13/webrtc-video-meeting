@@ -10,10 +10,23 @@ const CONFIG = require('../config');
 const Logger = require('../lib/Logger');
 const logger = new Logger();
 module.exports = (app) => {
-  app.get('/api/auth/account', requireLogin, async (req, res) => {
-    const sql = `SELECT * FROM users`;
+  app.get('/api/auth/account-info', requireLogin, async (req, res) => {
+    const id = req.user.id;
+    const sql = `SELECT u.id,
+    u.username,
+    u.fullname,
+    u.departmentId,
+    d.name as departmentName,
+    u.position,
+    u.phoneNumber,
+    u.address,
+    u.email,
+    u.dateOfBirth,
+    u.createdAt,
+    u.updatedAt FROM users as u LEFT JOIN departments as d ON u.departmentId = d.id WHERE u.id=${id}`;
+    logger.info(sql);
     const users = await db.query(sql);
-    res.json(sendRes(users));
+    res.json(sendRes(users[0]));
   });
 
   app.post('/api/auth/login', async function (req, res) {
@@ -70,7 +83,7 @@ module.exports = (app) => {
       await db.query(sql);
       res.send('Ok');
     } catch (ex) {
-      res.status(403).json(sendError(4301, ex.message));
+      res.status(500).json(sendError(5000, ex.message));
     }
   });
 };
