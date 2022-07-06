@@ -124,13 +124,13 @@ module.exports =
 				{
 					protocol    : 'udp',
 					ip          : process.env.MEDIASOUP_LISTEN_IP || '0.0.0.0',
-					announcedIp : process.env.MEDIASOUP_ANNOUNCED_IP,
+					announcedIp : process.env.MEDIASOUP_ANNOUNCED_IP || '192.168.1.52',
 					port        : 44444
 				},
 				{
 					protocol    : 'tcp',
 					ip          : process.env.MEDIASOUP_LISTEN_IP || '0.0.0.0',
-					announcedIp : process.env.MEDIASOUP_ANNOUNCED_IP,
+					announcedIp : process.env.MEDIASOUP_ANNOUNCED_IP || '192.168.1.52',
 					port        : 44444
 				}
 			]
@@ -146,7 +146,7 @@ module.exports =
 			[
 				{
 					ip          : process.env.MEDIASOUP_LISTEN_IP || '0.0.0.0',
-					announcedIp : process.env.MEDIASOUP_ANNOUNCED_IP
+					announcedIp : process.env.MEDIASOUP_ANNOUNCED_IP || '192.168.1.52'
 				}
 			],
 			initialAvailableOutgoingBitrate : 1000000,
@@ -163,7 +163,7 @@ module.exports =
 			listenIp :
 			{
 				ip          : process.env.MEDIASOUP_LISTEN_IP || '0.0.0.0',
-				announcedIp : process.env.MEDIASOUP_ANNOUNCED_IP
+				announcedIp : process.env.MEDIASOUP_ANNOUNCED_IP || '192.168.1.52'
 			},
 			maxSctpMessageSize : 262144
 		}
