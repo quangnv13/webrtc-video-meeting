@@ -63,7 +63,7 @@ async function run()
 	logger.debug('run() [environment:%s]', process.env.NODE_ENV);
 
 	const urlParser = new UrlParse(window.location.href, true);
-	const peerId = randomString({ length: 8 }).toLowerCase();
+	const peerId = randomString({ length: 10 }).toLowerCase();
 	let roomId = urlParser.query.roomId;
 	let displayName =
 		urlParser.query.displayName || (cookiesManager.getUser() || {}).displayName;
@@ -99,13 +99,15 @@ async function run()
 		window.NETWORK_THROTTLE_SECRET = throttleSecret;
 	}
 
-	if (!roomId)
-	{
-		roomId = randomString({ length: 8 }).toLowerCase();
+	//@Duytd Chỗ này nếu không có roomId thì em route về màn hình chính load hết các meeting đang có ra để nó chọn
 
-		urlParser.query.roomId = roomId;
-		window.history.pushState('', '', urlParser.toString());
-	}
+	// if (!roomId)
+	// {
+	// 	roomId = randomString({ length: 8 }).toLowerCase();
+
+	// 	urlParser.query.roomId = roomId;
+	// 	window.history.pushState('', '', urlParser.toString());
+	// }
 
 	// Get the effective/shareable Room URL.
 	const roomUrlParser = new UrlParse(window.location.href, true);
@@ -151,6 +153,7 @@ async function run()
 	// Otherwise pick a random name and mark as "not set".
 	else
 	{
+		//@Duytd đoạn này gọi API hoặc lưu localstorage username của user xong gán vào đây ko để
 		displayNameSet = false;
 		displayName = randomName();
 	}
@@ -167,6 +170,7 @@ async function run()
 	store.dispatch(
 		stateActions.setMe({ peerId, displayName, displayNameSet, device }));
 
+	//@Duytd chỗ này check xem phòng có cần mật khẩu không thì mới khởi tạo và join vào phòng
 	roomClient = new RoomClient(
 		{
 			roomId,
