@@ -1,5 +1,4 @@
-let protooPort = 4443;
-
+const protooPort = 4443;
 
 export function getProtooUrl({ roomId, peerId })
 {
