@@ -158,6 +158,8 @@ async function createExpressApp() {
   expressApp.use(bodyParser.json());
   expressApp.use(morgan('combined'));
 
+  expressApp.use('/', express.static('public'));
+
   //Load auth route
   require('./routes/authRoute')(expressApp);
   require('./routes/department')(expressApp);
