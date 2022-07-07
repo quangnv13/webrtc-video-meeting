@@ -37,13 +37,13 @@ module.exports = (app) => {
     );
     try {
       await db.query(sql);
-      res.json({
+      res.json(sendRes({
         ...req.body,
         userId: req.user.id,
         password: req.body.password || '',
         path,
         createdAt,
-      });
+      }));
     } catch (ex) {
       res.status(500).json(sendError(5000, ex.message));
     }

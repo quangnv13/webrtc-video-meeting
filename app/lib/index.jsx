@@ -21,6 +21,7 @@ import * as cookiesManager from './cookiesManager';
 import * as stateActions from './redux/stateActions';
 import reducers from './redux/reducers';
 import Room from './components/Room';
+import {makeid} from './randomName';
 
 const logger = new Logger();
 const reduxMiddlewares = [ thunk ];
@@ -101,13 +102,13 @@ async function run()
 
 	//@Duytd Chỗ này nếu không có roomId thì em route về màn hình chính load hết các meeting đang có ra để nó chọn
 
-	// if (!roomId)
-	// {
-	// 	roomId = randomString({ length: 8 }).toLowerCase();
+	if (!roomId)
+	{
+		roomId = randomString({ length: 8 }).toLowerCase();
 
-	// 	urlParser.query.roomId = roomId;
-	// 	window.history.pushState('', '', urlParser.toString());
-	// }
+		urlParser.query.roomId = roomId;
+		window.history.pushState('', '', urlParser.toString());
+	}
 
 	// Get the effective/shareable Room URL.
 	const roomUrlParser = new UrlParse(window.location.href, true);
@@ -155,7 +156,7 @@ async function run()
 	{
 		//@Duytd đoạn này gọi API hoặc lưu localstorage username của user xong gán vào đây ko để
 		displayNameSet = false;
-		displayName = randomName();
+		displayName = `nguoi_dung_${makeid(5)}`;
 	}
 
 	// Get current device info.

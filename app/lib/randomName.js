@@ -7,6 +7,17 @@ export default function()
 	return pokemon.random(lang);
 }
 
+export const makeid = (length) => {
+	var result = '';
+	var characters =
+	  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@';
+	var charactersLength = characters.length;
+	for (var i = 0; i < length; i++) {
+	  result += characters.charAt(Math.floor(Math.random() * charactersLength));
+	}
+	return result.toLowerCase();
+  }
+
 // TODO: pokemon lib does not work with browserify (it just loads 'en' language)
 // so let's just use 'en'.
 //

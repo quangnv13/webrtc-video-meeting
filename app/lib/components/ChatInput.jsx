@@ -37,7 +37,7 @@ class ChatInput extends React.Component
 			<div data-component='ChatInput'>
 				<textarea
 					ref={(elem) => { this._textareaElem = elem; }}
-					placeholder={disabled ? 'Chat unavailable' : 'Write here...'}
+					placeholder={disabled ? 'Chat không khả dụng' : 'Gửi tin nhắn'}
 					dir='auto'
 					autoComplete='off'
 					disabled={disabled}

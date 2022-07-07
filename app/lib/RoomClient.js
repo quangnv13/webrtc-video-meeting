@@ -548,7 +548,7 @@ export default class RoomClient
 
 									store.dispatch(requestActions.notify(
 										{
-											title   : `${sendingPeer.displayName} says:`,
+											title   : `${sendingPeer.displayName}:`,
 											text    : message,
 											timeout : 5000
 										}));
@@ -1934,7 +1934,7 @@ export default class RoomClient
 
 			store.dispatch(requestActions.notify(
 				{
-					text : 'Display name changed'
+					text : 'Đã đổi tên'
 				}));
 		}
 		catch (error)
@@ -2371,7 +2371,7 @@ export default class RoomClient
 
 			store.dispatch(requestActions.notify(
 				{
-					text    : 'You are in the room!',
+					text    : 'Bạn đã tham gia phòng họp!',
 					timeout : 3000
 				}));
 

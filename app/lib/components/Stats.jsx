@@ -75,7 +75,7 @@ class Stats extends React.Component
 
 							<Choose>
 								<When condition={isMe}>
-									<h1>Your Stats</h1>
+									<h1>Thông số</h1>
 								</When>
 
 								<Otherwise>

@@ -1,8 +1,8 @@
-const protooPort = 4443;
+const protooPort = 443;
 
 export function getProtooUrl({ roomId, peerId })
 {
-	const hostname = window.location.hostname;
+	const hostname = 'api-meet.quangnguyen.info';
 
 	return `wss://${hostname}:${protooPort}/?roomId=${roomId}&peerId=${peerId}`;
 }

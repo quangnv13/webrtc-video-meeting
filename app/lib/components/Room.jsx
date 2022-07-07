@@ -34,7 +34,7 @@ class Room extends React.Component
 
 					<div className='state'>
 						<div className={classnames('icon', room.state)} />
-						<p className={classnames('text', room.state)}>{room.state}</p>
+						<p className={classnames('text', room.state)}>{room.state === 'connected'? 'ĐÃ KẾT NỐI':'CHƯA KẾT NỐI'}</p>
 					</div>
 
 					<div className='room-link-wrapper'>
@@ -63,7 +63,7 @@ class Room extends React.Component
 										.then(onRoomLinkCopy);
 								}}
 							>
-								invitation link
+								Lấy đường dẫn phòng họp
 							</a>
 						</div>
 					</div>
@@ -88,7 +88,7 @@ class Room extends React.Component
 								on       : me.audioOnly,
 								disabled : me.audioOnlyInProgress
 							})}
-							data-tip={'Show/hide participants\' video'}
+							data-tip={'Bật/tắt camera toàn bộ người tham gia'}
 							onClick={() =>
 							{
 								me.audioOnly
@@ -101,7 +101,7 @@ class Room extends React.Component
 							className={classnames('button', 'mute-audio', {
 								on : me.audioMuted
 							})}
-							data-tip={'Mute/unmute participants\' audio'}
+							data-tip={'Bật/tắt tiếng toàn bộ người tham gia'}
 							onClick={() =>
 							{
 								me.audioMuted
@@ -114,7 +114,7 @@ class Room extends React.Component
 							className={classnames('button', 'restart-ice', {
 								disabled : me.restartIceInProgress
 							})}
-							data-tip='Restart ICE'
+							data-tip='Khởi động lại ICE'
 							onClick={() => roomClient.restartIce()}
 						/>
 					</div>
@@ -172,7 +172,7 @@ const mapDispatchToProps = (dispatch) =>
 		{
 			dispatch(requestActions.notify(
 				{
-					text : 'Room link copied to the clipboard'
+					text : 'Đã copy đường dẫn phòng họp'
 				}));
 		}
 	};

@@ -70,7 +70,7 @@ class Me extends React.Component
 		let tip;
 
 		if (!me.displayNameSet)
-			tip = 'Click on your name to change it';
+			tip = 'Nhấp vào tên để thay đổi tên';
 
 		return (
 			<div

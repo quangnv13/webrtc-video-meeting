@@ -17,6 +17,7 @@ const url = require('url');
 const protoo = require('protoo-server');
 const mediasoup = require('mediasoup');
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const { AwaitQueue } = require('awaitqueue');
 const Logger = require('./lib/Logger');
@@ -154,6 +155,7 @@ async function createExpressApp() {
   const morgan = require('morgan');
   expressApp = express();
 
+  expressApp.use(cors({}))
   expressApp.use(passport.initialize());
   expressApp.use(bodyParser.json());
   expressApp.use(morgan('combined'));
