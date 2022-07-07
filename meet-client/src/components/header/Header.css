@@ -1,0 +1,10 @@
+.active::after {
+  background-color: #1a73e8;
+  bottom: -2px;
+  content: ' ';
+  height: 2px;
+  left: 12px;
+  position: absolute;
+  width: calc(100% - 24px);
+  z-index: 840;
+}

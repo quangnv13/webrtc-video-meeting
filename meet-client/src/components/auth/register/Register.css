@@ -1,0 +1,14 @@
+.login {
+  background-image: url(https://images.pexels.com/photos/853199/pexels-photo-853199.jpeg?auto=compress&cs=tinysrgb&w=1600);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.login-form-forgot {
+  float: right;
+}
+.ant-col-rtl .login-form-forgot {
+  float: left;
+}
+.login-form-button {
+  width: 100%;
+}

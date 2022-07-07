@@ -1,0 +1,17 @@
+.input-code {
+  background: url('https://apps.google.com/static/img/keyboard-24px.svg') no-repeat 12px 11px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  height: 48px;
+  padding: 11px 20px 10px 48px;
+  -ms-transform: translateY(1px);
+  transform: translateY(1px);
+}
+.line {
+  border: solid #dadce0;
+  border-width: 1px 0 0;
+  clear: both;
+  height: 0;
+  margin-bottom: 19px;
+  margin-top: 36px;
+}
