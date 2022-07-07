@@ -631,7 +631,7 @@ export default class RoomClient
 
 					store.dispatch(requestActions.notify(
 						{
-							text : `${peer.displayName} has joined the room`
+							text : `${peer.displayName} đã tham gia phòng họp`
 						}));
 
 					break;
